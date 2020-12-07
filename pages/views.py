@@ -11,6 +11,7 @@ def index(request, pagename):
         'title': pg.title,
         'content': pg.body_text,
         'last_updated': pg.update_date,
+        'page_list': Page.objects.all(),
     }
     # assert False
     # return HttpResponse("<h1>The Meandco Homepage</h1>")
