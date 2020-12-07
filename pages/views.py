@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 # from django.http import HttpResponse
 from .models import Page
 # Create your views here.
@@ -6,7 +6,7 @@ from .models import Page
 
 def index(request, pagename):
     pagename = '/' + pagename
-    pg = Page.objects.get(permalink=pagename)
+    pg = get_object_or_404(Page, permalink=pagename)
     context = {
         'title': pg.title,
         'content': pg.body_text,
